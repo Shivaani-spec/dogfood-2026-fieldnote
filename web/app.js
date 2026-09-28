@@ -448,9 +448,9 @@
       (isRegister ? "Join the event as a participant. You can build a team and submit once you sign in." :
         "Use your event account or try a seeded demo role.") + '</p>' +
       '<form id="auth-form" data-form="auth" class="form-grid" style="margin-top:17px">' +
-      (isRegister ? '<div class="form-field full"><label>Your name</label><input class="field-control" name="name" required maxlength="100" placeholder="Ada Lovelace"></div>' : "") +
-      '<div class="form-field full"><label>Email</label><input class="field-control" name="email" type="email" required autocomplete="username" placeholder="you@example.org"></div>' +
-      '<div class="form-field full"><label>Password</label><input class="field-control" name="password" type="password" required minlength="' +
+      (isRegister ? '<div class="form-field full"><label for="auth-name">Your name</label><input id="auth-name" class="field-control" name="name" required maxlength="100" placeholder="Ada Lovelace"></div>' : "") +
+      '<div class="form-field full"><label for="auth-email">Email</label><input id="auth-email" class="field-control" name="email" type="email" required autocomplete="username" placeholder="you@example.org"></div>' +
+      '<div class="form-field full"><label for="auth-password">Password</label><input id="auth-password" class="field-control" name="password" type="password" required minlength="' +
       (isRegister ? "10" : "1") + '" autocomplete="' + (isRegister ? "new-password" : "current-password") + '" placeholder="' +
       (isRegister ? "At least 10 characters" : "Your password") + '"></div>' +
       '<div id="auth-error" class="inline-error full"></div><div class="form-field full"><button class="button button-dark" type="submit" style="width:100%">' +
