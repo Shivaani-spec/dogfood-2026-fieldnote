@@ -16,6 +16,12 @@ For a direct development run, use Python 3.12 or newer:
 
 The app seeds DOGFOOD fixtures on first start and prints the four acceptance-checker auth headers to stdout. No package installation is required. A direct run stores the database in data/.
 
+The Dockerfile and Compose configuration are included. Docker was unavailable in the build environment, so the Compose launch path has not been verified here.
+
+## Public preview
+
+Browse the [Fieldnote Vercel preview](https://fieldnote-dogfood-2026-demo.vercel.app/). It is a static, read-only gallery built from the challenge's fictional checker fixtures. Search, track filters and sorting work; it does not accept accounts, submissions, or judge scores. The standalone preview source is in the vercel-demo directory; the complete Python and SQLite portal runs locally.
+
 ## Demo accounts
 
 | Role | Email | Password |
