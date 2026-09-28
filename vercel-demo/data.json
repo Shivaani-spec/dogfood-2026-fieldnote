@@ -1,0 +1,333 @@
+{
+  "fixtureEvent": "Sample Hack 2026",
+  "projects": [
+    {
+      "id": "prj_01",
+      "title": "Glass Signal",
+      "team": "NorthKiln",
+      "track": "Security",
+      "submittedAt": "2026-02-27T04:08:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_02",
+      "title": "Small Meadow",
+      "team": "LoudQuarry",
+      "track": "Accessibility",
+      "submittedAt": "2026-02-27T20:06:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_03",
+      "title": "Deep Compass",
+      "team": "StillTrail",
+      "track": "Accessibility",
+      "submittedAt": "2026-02-28T16:58:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_04",
+      "title": "Green Switch",
+      "team": "SaltDrift",
+      "track": "Education",
+      "submittedAt": "2026-02-27T17:00:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_05",
+      "title": "North Compass",
+      "team": "AmberSwitch",
+      "track": "Data and analytics",
+      "submittedAt": "2026-02-27T04:40:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_06",
+      "title": "Dry Compass",
+      "team": "CopperBeacon",
+      "track": "Developer tools",
+      "submittedAt": "2026-03-01T10:24:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_07",
+      "title": "Dry Harbour",
+      "team": "CopperLedger",
+      "track": "Accessibility",
+      "submittedAt": "2026-03-01T04:29:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_08",
+      "title": "North Drift",
+      "team": "GreenHours",
+      "track": "Security",
+      "submittedAt": "2026-03-01T01:09:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_09",
+      "title": "Hollow Signal",
+      "team": "IronLedger",
+      "track": "Health",
+      "submittedAt": "2026-03-01T15:47:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_10",
+      "title": "Still Beacon",
+      "team": "AmberOrbit",
+      "track": "Open hardware",
+      "submittedAt": "2026-03-01T05:44:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_11",
+      "title": "Salt Ledger",
+      "team": "OpenSignal",
+      "track": "Data and analytics",
+      "submittedAt": "2026-02-28T13:14:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_12",
+      "title": "Open Beacon",
+      "team": "IronLoom",
+      "track": "Education",
+      "submittedAt": "2026-02-28T09:46:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_13",
+      "title": "Quiet Anchor",
+      "team": "HollowHours",
+      "track": "Climate",
+      "submittedAt": "2026-03-01T14:20:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_14",
+      "title": "Green Lantern",
+      "team": "StillMeadow",
+      "track": "Education",
+      "submittedAt": "2026-02-27T10:21:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_15",
+      "title": "Copper Orbit",
+      "team": "WarmQuarry",
+      "track": "Security",
+      "submittedAt": "2026-03-01T08:30:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_16",
+      "title": "Salt Kiln",
+      "team": "OpenSignal",
+      "track": "Security",
+      "submittedAt": "2026-02-28T14:00:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_17",
+      "title": "Small Loom",
+      "team": "SmallSignal",
+      "track": "Health",
+      "submittedAt": "2026-03-01T09:09:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_18",
+      "title": "Open Kiln",
+      "team": "CopperMeadow",
+      "track": "Education",
+      "submittedAt": "2026-03-01T15:30:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_19",
+      "title": "Small Relay",
+      "team": "PaperAnchor",
+      "track": "Health",
+      "submittedAt": "2026-02-27T09:30:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_20",
+      "title": "Paper Thread",
+      "team": "HollowHarbour",
+      "track": "Open hardware",
+      "submittedAt": "2026-02-27T05:18:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_21",
+      "title": "Copper Kiln",
+      "team": "SaltThread",
+      "track": "Data and analytics",
+      "submittedAt": "2026-02-28T01:03:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_22",
+      "title": "Dry Bridge",
+      "team": "GreenFerry",
+      "track": "Security",
+      "submittedAt": "2026-03-01T07:47:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_23",
+      "title": "Slow Quarry",
+      "team": "HollowOrbit",
+      "track": "Open hardware",
+      "submittedAt": "2026-03-01T10:30:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_24",
+      "title": "Glass Beacon",
+      "team": "PaperLoom",
+      "track": "Accessibility",
+      "submittedAt": "2026-02-28T17:09:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_25",
+      "title": "Dry Relay",
+      "team": "GreenDrift",
+      "track": "Data and analytics",
+      "submittedAt": "2026-02-28T22:36:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_26",
+      "title": "Amber Hours",
+      "team": "SaltMeadow",
+      "track": "Climate",
+      "submittedAt": "2026-02-27T03:56:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_27",
+      "title": "Flat Thread",
+      "team": "BrightSignal",
+      "track": "Open hardware",
+      "submittedAt": "2026-02-28T10:34:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_28",
+      "title": "Flat Meadow",
+      "team": "BrightCompass",
+      "track": "Data and analytics",
+      "submittedAt": "2026-03-01T10:22:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_29",
+      "title": "Flat Relay",
+      "team": "SmallLedger",
+      "track": "Developer tools",
+      "submittedAt": "2026-02-28T20:34:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_30",
+      "title": "Paper Harbour",
+      "team": "StillTrail",
+      "track": "Education",
+      "submittedAt": "2026-03-01T13:45:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_31",
+      "title": "Salt Ferry",
+      "team": "GreenBeacon",
+      "track": "Developer tools",
+      "submittedAt": "2026-03-01T05:43:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_32",
+      "title": "Loud Ledger",
+      "team": "DeepMeadow",
+      "track": "Developer tools",
+      "submittedAt": "2026-03-01T14:58:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_33",
+      "title": "Slow Trail",
+      "team": "WarmTrail",
+      "track": "Developer tools",
+      "submittedAt": "2026-02-27T20:51:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_34",
+      "title": "Iron Switch",
+      "team": "AmberSwitch",
+      "track": "Open hardware",
+      "submittedAt": "2026-02-28T01:13:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_35",
+      "title": "Warm Beacon",
+      "team": "GlassDrift",
+      "track": "Climate",
+      "submittedAt": "2026-02-27T09:33:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_36",
+      "title": "Salt Drift",
+      "team": "HollowLoom",
+      "track": "Open hardware",
+      "submittedAt": "2026-02-27T01:20:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_37",
+      "title": "Salt Loom",
+      "team": "SaltCompass",
+      "track": "Education",
+      "submittedAt": "2026-02-27T21:42:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_38",
+      "title": "Deep Beacon",
+      "team": "GreenLedger",
+      "track": "Data and analytics",
+      "submittedAt": "2026-02-27T03:39:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_39",
+      "title": "Paper Anchor",
+      "team": "SlowCompass",
+      "track": "Accessibility",
+      "submittedAt": "2026-02-26T23:30:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_40",
+      "title": "Slow Loom",
+      "team": "StillTrail",
+      "track": "Developer tools",
+      "submittedAt": "2026-02-28T15:26:00Z",
+      "summary": "One line of what it does."
+    },
+    {
+      "id": "prj_41",
+      "title": "Dry Harbour",
+      "team": "CopperLedger",
+      "track": "Accessibility",
+      "submittedAt": "2026-03-01T17:57:00Z",
+      "summary": "One line of what it does."
+    }
+  ]
+}

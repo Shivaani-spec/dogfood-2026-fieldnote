@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3ee">
+  <meta name="description" content="A read-only public preview of Fieldnote, the self-hosted DOGFOOD 2026 submission and judging portal.">
+  <meta property="og:title" content="Fieldnote — DOGFOOD 2026 portal preview">
+  <meta property="og:description" content="Browse fictional checker fixtures in a read-only preview of the submission register and judging policy.">
+  <meta property="og:type" content="website">
+  <title>Fieldnote — DOGFOOD 2026 portal preview</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="rail" aria-label="Fieldnote navigation">
+      <a class="brand" href="#top" aria-label="Fieldnote home">
+        <span class="brand-mark" aria-hidden="true">F</span>
+        <span class="brand-copy">Fieldnote<small>EVENT OPERATIONS</small></span>
+      </a>
+
+      <div class="rail-section-label">WORKSPACE</div>
+      <div class="event-switch" aria-label="Selected event">
+        <span class="event-number">26</span>
+        <span><small>DOGFOOD</small><strong>Platform preview</strong></span>
+        <span class="switch-mark" aria-hidden="true">⌄</span>
+      </div>
+
+      <nav class="nav-list">
+        <a class="nav-item is-active" href="#register"><span>01</span>Submissions</a>
+        <a class="nav-item" href="#judging"><span>02</span>Judging policy</a>
+        <a class="nav-item" href="#local-run"><span>03</span>Run locally</a>
+      </nav>
+
+      <div class="rail-spacer"></div>
+      <div class="preview-state"><i aria-hidden="true"></i><span><strong>PUBLIC PREVIEW</strong><small>Fixture data · read only</small></span></div>
+      <a class="rail-source" href="https://github.com/Shivaani-spec/dogfood-2026-fieldnote" target="_blank" rel="noreferrer">Source repository <span aria-hidden="true">↗</span></a>
+      <div class="rail-foot">FIELDNOTE <span>·</span> DOGFOOD 2026</div>
+    </aside>
+
+    <main id="top" class="main">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>Fieldnote</span><b>/</b><strong>DOGFOOD 2026</strong></div>
+        <div class="top-actions"><span class="readonly"><i aria-hidden="true"></i>READ ONLY</span><a class="button button-quiet" href="https://github.com/Shivaani-spec/dogfood-2026-fieldnote" target="_blank" rel="noreferrer">View source <span aria-hidden="true">↗</span></a></div>
+      </header>
+
+      <div class="content">
+        <section class="page-intro" aria-labelledby="page-title">
+          <div>
+            <div class="eyebrow">EVENT OPERATIONS <span>/</span> PUBLIC DEMO</div>
+            <h1 id="page-title">Submission register</h1>
+            <p>Browse the challenge fixture entries by project, team or track. These records demonstrate the gallery; they are not participant submissions.</p>
+          </div>
+          <div class="event-state"><span>DATASET</span><strong>Acceptance fixtures</strong><small>Fictional · provided with the checker</small></div>
+        </section>
+
+        <section class="metrics" aria-label="Fixture dataset summary">
+          <article class="metric"><span>SUBMISSIONS</span><strong id="metric-projects">—</strong><small>fixture records</small></article>
+          <article class="metric"><span>TRACKS</span><strong id="metric-tracks">—</strong><small>configured categories</small></article>
+          <article class="metric"><span>RUBRIC</span><strong>4</strong><small>weighted criteria</small></article>
+          <article class="metric metric-note"><span>ACCESS</span><strong>Public</strong><small>private review data hidden</small></article>
+        </section>
+
+        <div class="workspace-grid">
+          <section id="register" class="register panel" aria-labelledby="register-title">
+            <header class="panel-heading">
+              <div><div class="eyebrow">EVENT FILE</div><h2 id="register-title">All submissions</h2></div>
+              <span id="visible-count" class="count-label">Loading records</span>
+            </header>
+            <div class="filters">
+              <label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search name, team or ID" aria-label="Search submissions"><kbd>/</kbd></label>
+              <label class="filter-select"><span class="sr-only">Filter by track</span><select id="track-filter"><option value="">All tracks</option></select></label>
+              <label class="filter-select sort-select"><span class="sr-only">Sort submissions</span><select id="sort-order"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Project name</option></select></label>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th scope="col">PROJECT</th><th scope="col">TEAM</th><th scope="col">TRACK</th><th scope="col">REFERENCE</th><th scope="col"><span class="sr-only">Details</span></th></tr></thead>
+                <tbody id="submission-rows"><tr><td colspan="5" class="loading">Loading fixture records…</td></tr></tbody>
+              </table>
+            </div>
+            <div id="empty-state" class="empty-state" hidden><strong>No matching entries</strong><span>Try a different name or track.</span></div>
+            <footer class="table-foot"><span>All records shown are fictional test data.</span><button id="clear-filters" type="button">Clear filters</button></footer>
+          </section>
+
+          <aside class="side-column">
+            <section class="selected panel" aria-labelledby="selected-title" aria-live="polite">
+              <div class="eyebrow">ENTRY DETAILS</div>
+              <div id="selected-content"><div class="detail-placeholder"><span class="placeholder-mark" aria-hidden="true">↖</span><strong id="selected-title">Select a submission</strong><p>Choose a row to inspect its fixture details.</p></div></div>
+            </section>
+
+            <section id="judging" class="judging panel" aria-labelledby="judging-title">
+              <div class="eyebrow">REVIEW FRAMEWORK</div>
+              <h2 id="judging-title">Weighted rubric</h2>
+              <p class="panel-copy">The sample event scores each project against the same four criteria.</p>
+              <dl class="rubric">
+                <div><dt>Functionality</dt><dd>35%</dd></div>
+                <div><dt>Craft &amp; quality</dt><dd>30%</dd></div>
+                <div><dt>Originality</dt><dd>20%</dd></div>
+                <div><dt>Potential impact</dt><dd>15%</dd></div>
+              </dl>
+              <p class="integrity-note"><span aria-hidden="true">●</span> Judge ballots stay private. Raw scores remain available when normalized results are prepared.</p>
+            </section>
+          </aside>
+        </div>
+
+        <section id="local-run" class="local-panel">
+          <div><div class="eyebrow">FULL WORKSPACE</div><h2>Run the portal on your machine</h2><p>This public page is a read-only gallery. Team accounts, project submissions, judge assignments and event controls are in the self-hosted application.</p></div>
+          <div class="run-action"><div class="command"><code>docker compose up</code><button id="copy-command" type="button" aria-label="Copy docker compose up">Copy</button></div><a href="https://github.com/Shivaani-spec/dogfood-2026-fieldnote#start" target="_blank" rel="noreferrer">Setup instructions <span aria-hidden="true">↗</span></a></div>
+        </section>
+
+        <footer class="main-foot"><span>FIELDNOTE <span>·</span> SUBMISSION &amp; JUDGING PORTAL</span><span>Public demo uses fictional checker fixtures.</span></footer>
+      </div>
+    </main>
+  </div>
+  <div id="notice" class="notice" role="status" aria-live="polite"></div>
+</body>
+</html>
