@@ -43,6 +43,10 @@ From this directory, run the official standard-library checker:
 
 The checker is included unchanged from the official spec. Keep its generated report at the repository root, even when it contains a failure. The config claims T1 and T2; it does not claim the partially implemented public and stretch tiers.
 
+## Submission presentation
+
+An editable five-slide pitch deck is included at [submission-artifact/Fieldnote-DOGFOOD-2026-Pitch.pptx](submission-artifact/Fieldnote-DOGFOOD-2026-Pitch.pptx). It summarizes the product, judging controls, local operation, and verified T1/T2 results. The deck states that Docker Compose was not run on the build machine.
+
 ## What works
 
 - Per-account salted PBKDF2 password verifiers, random expiring sessions, HTTP-only same-site cookies, server-side role checks and a login throttle.
