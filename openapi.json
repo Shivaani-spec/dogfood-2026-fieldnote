@@ -1,0 +1,109 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Fieldnote API",
+    "version": "1.0.0",
+    "description": "Same-origin JSON API for a self-hosted hackathon submission and judging portal."
+  },
+  "servers": [{ "url": "http://localhost:8080" }],
+  "security": [{ "sessionCookie": [] }],
+  "components": {
+    "securitySchemes": {
+      "sessionCookie": { "type": "apiKey", "in": "cookie", "name": "session", "description": "HTTP-only session cookie set by /api/auth/login." }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "required": ["error", "message"],
+        "properties": { "error": { "type": "string" }, "message": { "type": "string" } }
+      },
+      "Score": {
+        "type": "object",
+        "required": ["project_id", "criteria"],
+        "properties": {
+          "project_id": { "type": "string" },
+          "criteria": { "type": "object", "additionalProperties": { "type": "number", "minimum": 1, "maximum": 5 } },
+          "comment": { "type": "string", "maxLength": 2000 }
+        }
+      },
+      "Project": {
+        "type": "object",
+        "required": ["title", "track_id"],
+        "properties": {
+          "title": { "type": "string", "maxLength": 120 },
+          "track_id": { "type": "string" },
+          "tagline": { "type": "string", "maxLength": 200 },
+          "description": { "type": "string", "maxLength": 8000 },
+          "repo_url": { "type": "string", "format": "uri" },
+          "live_url": { "type": "string", "format": "uri" },
+          "demo_url": { "type": "string", "format": "uri" },
+          "tech_tags": { "type": "array", "items": { "type": "string" }, "maxItems": 20 },
+          "draft": { "type": "boolean" }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/api/health": { "get": { "security": [], "summary": "Readiness probe", "responses": { "200": { "description": "Service is ready." } } } },
+    "/api/session": { "get": { "summary": "Get current session", "responses": { "200": { "description": "Current user or null." } } } },
+    "/api/auth/register": { "post": { "security": [], "summary": "Register a participant account", "responses": { "201": { "description": "Account and session created." }, "400": { "description": "Invalid account fields." } } } },
+    "/api/auth/login": { "post": { "security": [], "summary": "Create a session", "responses": { "200": { "description": "Session cookie set." }, "401": { "description": "Invalid credentials." }, "429": { "description": "Login throttle reached." } } } },
+    "/api/auth/logout": { "post": { "summary": "End current session", "responses": { "200": { "description": "Session removed." } } } },
+    "/api/bootstrap": { "get": { "security": [], "summary": "Get active event, gallery and signed-in user", "responses": { "200": { "description": "Initial UI state." } } } },
+    "/api/events": {
+      "get": { "security": [], "summary": "List local events", "responses": { "200": { "description": "Event summaries." } } },
+      "post": { "summary": "Create an event", "responses": { "201": { "description": "Event created and selected." }, "403": { "description": "Organizer role required." } } }
+    },
+    "/api/events/{event_id}": {
+      "parameters": [{ "name": "event_id", "in": "path", "required": true, "schema": { "type": "string" } }],
+      "patch": { "summary": "Edit dates, tracks, prizes, questions and rubric", "responses": { "200": { "description": "Updated event." }, "403": { "description": "Organizer role required." } } },
+      "put": { "summary": "Replace supported event settings", "responses": { "200": { "description": "Updated event." } } }
+    },
+    "/api/events/select": { "post": { "summary": "Select active event", "responses": { "200": { "description": "Event selected." } } } },
+    "/api/projects": {
+      "get": { "security": [], "summary": "Search and filter the public gallery", "parameters": [
+        { "name": "q", "in": "query", "schema": { "type": "string" } },
+        { "name": "track", "in": "query", "schema": { "type": "string" } }
+      ], "responses": { "200": { "description": "Submitted projects." } } },
+      "post": { "summary": "Create a submission or draft", "responses": { "201": { "description": "Project saved." }, "409": { "description": "Submission window closed." } } }
+    },
+    "/api/projects/{project_id}": {
+      "parameters": [{ "name": "project_id", "in": "path", "required": true, "schema": { "type": "string" } }],
+      "get": { "security": [], "summary": "Read a public project and comments", "responses": { "200": { "description": "Project detail." } } },
+      "put": { "summary": "Edit a team submission before the deadline", "responses": { "200": { "description": "Project updated." }, "403": { "description": "Team membership required." }, "409": { "description": "Submission window closed." } } }
+    },
+    "/api/my/projects": { "get": { "summary": "List the caller's team projects", "responses": { "200": { "description": "Drafts and submissions." } } } },
+    "/api/my/teams": { "get": { "summary": "List caller's event teams", "responses": { "200": { "description": "Team memberships." } } } },
+    "/api/teams": { "post": { "summary": "Create a participant team", "responses": { "201": { "description": "Team created." } } } },
+    "/api/teams/{team_id}/invites": { "post": { "summary": "Create a single-use teammate invite", "responses": { "201": { "description": "Relative invite URL." } } } },
+    "/api/invites/{token}/accept": { "post": { "summary": "Accept a teammate invite", "responses": { "200": { "description": "Team joined." }, "404": { "description": "Expired or used invite." } } } },
+    "/api/judges": { "post": { "summary": "Create a judge scoped to event tracks", "responses": { "201": { "description": "Judge and one-time temporary password." } } } },
+    "/api/judge/assignments": { "get": { "summary": "List caller's review assignments", "responses": { "200": { "description": "Only own assignments for a judge; organizer sees the event queue." }, "403": { "description": "Judge or organizer role required." } } } },
+    "/api/organizer/assignments/auto": { "post": { "summary": "Generate balanced track-scoped assignments", "responses": { "200": { "description": "Assignments added and updated progress." } } } },
+    "/api/judge/scores": {
+      "get": { "summary": "Read caller's own ballots; organizer can inspect a judge", "parameters": [
+        { "name": "judge", "in": "query", "schema": { "type": "string" }, "description": "Organizer-only judge identity selector." }
+      ], "responses": { "200": { "description": "Private scores." }, "403": { "description": "Peer ballot access denied." } } },
+      "post": { "summary": "Save a score for an owned assignment", "responses": { "200": { "description": "Score saved." }, "403": { "description": "Assignment or track scope denied." } } }
+    },
+    "/api/organizer/progress": { "get": { "summary": "Review progress metrics", "responses": { "200": { "description": "Counts and completion percentage." } } } },
+    "/api/organizer/results": { "get": { "summary": "Read raw and normalized results with proof data", "responses": { "200": { "description": "Organizer-only weighted results." } } } },
+    "/api/results/publish": { "post": { "summary": "Publish results after an active vote window", "responses": { "200": { "description": "Results published." }, "409": { "description": "Voting remains active." } } } },
+    "/api/results": { "get": { "security": [], "summary": "Read published results", "responses": { "200": { "description": "Public results." }, "403": { "description": "Results remain private." } } } },
+    "/api/voting/ballot": { "get": { "security": [], "summary": "Get a randomized ballot and remaining quadratic budget", "responses": { "200": { "description": "Projects in stable voter-specific order." }, "401": { "description": "Account required by event mode." }, "409": { "description": "Voting is outside its window." } } } },
+    "/api/votes": { "post": { "security": [], "summary": "Cast or update one project vote", "responses": { "201": { "description": "Vote recorded." }, "409": { "description": "Budget exhausted or voting closed." } } } },
+    "/api/comments": { "post": { "summary": "Add a project comment", "responses": { "201": { "description": "Comment created." } } } },
+    "/api/export.csv": { "get": { "summary": "Export event CSV", "parameters": [
+      { "name": "kind", "in": "query", "schema": { "type": "string", "enum": ["projects","assignments","scores","results","votes","audit"] } }
+    ], "responses": { "200": { "description": "CSV attachment." } } } },
+    "/api/export.json": { "get": { "summary": "Export an event archive", "responses": { "200": { "description": "Fieldnote JSON archive." } } } },
+    "/api/export/import": { "post": { "summary": "Import an event archive into a new event", "responses": { "201": { "description": "Archive imported." }, "400": { "description": "Unsupported archive." } } } },
+    "/api/audit": { "get": { "summary": "Read recent organizer audit entries", "responses": { "200": { "description": "Hash-linked activity." } } } },
+    "/api/verify/audit": { "get": { "security": [], "summary": "Verify the audit hash chain", "responses": { "200": { "description": "Chain integrity result." } } } },
+    "/api/certificates/{judge_id}": { "get": { "security": [], "summary": "Get a judge participation attestation", "responses": { "200": { "description": "HMAC-SHA256 attestation." } } } },
+    "/api/verify/certificate/{judge_id}": { "get": { "security": [], "summary": "Verify an attestation through its issuing instance", "parameters": [
+      { "name": "signature", "in": "query", "required": true, "schema": { "type": "string" } }
+    ], "responses": { "200": { "description": "Valid flag and verified record." } } } },
+    "/widget.js": { "get": { "security": [], "summary": "Load a gallery iframe widget", "responses": { "200": { "description": "JavaScript embed helper." } } } }
+  }
+}

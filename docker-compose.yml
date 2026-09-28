@@ -1,0 +1,32 @@
+services:
+  fieldnote:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fieldnote:local
+    container_name: fieldnote
+    restart: unless-stopped
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8080
+      DOGFOOD_DATA: /data
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - fieldnote_data:/data
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,noexec,nosuid
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/api/health', timeout=2)"]
+      interval: 15s
+      timeout: 3s
+      retries: 4
+      start_period: 30s
+
+volumes:
+  fieldnote_data:

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#10110f">
+  <meta name="description" content="Fieldnote is a local-first event submission and judging workspace.">
+  <title>Fieldnote — build, review, decide</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body data-embed="false">
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="/" aria-label="Fieldnote home">
+        <span class="brand-mark"><i></i><i></i><i></i></span>
+        <span class="brand-name">fieldnote<span class="brand-dot">.</span><small>EVENT WORKSPACE</small></span>
+      </a>
+      <div class="event-switch">
+        <span class="eyebrow">CURRENT EVENT</span>
+        <button id="event-picker" class="event-picker" type="button">
+          <span class="event-avatar">D</span><span id="event-name">DOGFOOD 2026</span><span class="chevron">⌄</span>
+        </button>
+      </div>
+      <div class="nav-group">
+        <span class="eyebrow">WORKSPACE</span>
+        <button class="nav-link active" data-view="gallery"><span class="nav-icon">◫</span>Project gallery<span class="nav-count" id="project-count">41</span></button>
+        <button class="nav-link" data-view="submit"><span class="nav-icon">＋</span>Submit project</button>
+        <button class="nav-link" data-view="judging"><span class="nav-icon">◉</span>Judge desk<span class="nav-pip"></span></button>
+        <button class="nav-link" data-view="organizer"><span class="nav-icon">▤</span>Event control</button>
+      </div>
+      <div class="sidebar-spacer"></div>
+      <div class="offline-card">
+        <span class="status-orb"></span><div><strong>Local workspace</strong><small>Data stays on this machine</small></div>
+      </div>
+      <button id="profile-button" class="profile-button" type="button">
+        <span class="profile-avatar" id="profile-avatar">G</span>
+        <span class="profile-copy"><strong id="profile-name">Guest</strong><small id="profile-role">Visitor access</small></span>
+        <span class="profile-more">···</span>
+      </button>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="crumbs"><span>Workspace</span><b>/</b><strong id="view-label">Project gallery</strong></div>
+        <div class="top-actions"><span class="server-pill"><span></span>LOCAL · READY</span><button id="sign-in" class="button button-dark" type="button">Sign in</button></div>
+      </header>
+      <div id="notice" class="notice" role="status" aria-live="polite"></div>
+      <section id="view-gallery" class="view"></section>
+      <section id="view-submit" class="view hidden"></section>
+      <section id="view-judging" class="view hidden"></section>
+      <section id="view-organizer" class="view hidden"></section>
+      <footer class="app-footer"><span>FIELDNOTE <b>·</b> A CALM PLACE TO MAKE THE CALL</span><span>Self-hosted by design <i></i></span></footer>
+    </main>
+  </div>
+  <dialog id="auth-dialog" class="dialog">
+    <form method="dialog" class="dialog-close"><button class="icon-button" aria-label="Close">×</button></form>
+    <div id="auth-content"></div>
+  </dialog>
+  <dialog id="event-dialog" class="dialog dialog-wide">
+    <form method="dialog" class="dialog-close"><button class="icon-button" aria-label="Close">×</button></form>
+    <div id="event-content"></div>
+  </dialog>
+  <dialog id="project-dialog" class="dialog dialog-wide">
+    <form method="dialog" class="dialog-close"><button class="icon-button" aria-label="Close">×</button></form>
+    <div id="project-content"></div>
+  </dialog>
+  <script src="/app.js" defer></script>
+</body>
+</html>
